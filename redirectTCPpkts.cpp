@@ -1,5 +1,3 @@
-// Redirect - Redireciona packotes de ip/port para outro ip/port.
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
