@@ -38,8 +38,7 @@ int main(int argc, char *argv[]) {
 	WSADATA wsadata;
 	WSAStartup(MAKEWORD(1,1), &wsadata);
 
-	//Testa o numero de argumentos da linha de comando
-
+	//Verifica a entrada de argumentos
 	if (argc != 5) {
 		std::cout << "\n  Este programa redireciona packotes TCP de um par ip/port para outro par ip/port\n\n";
 		std::cout << "    Uso: " << argv[0] << " IP1 PORT1 IP2 PORT2\n";
@@ -47,11 +46,11 @@ int main(int argc, char *argv[]) {
 	}
 
 	// Reseta todas estruturas de clientes
-	for (i = 0; i < MAXCLIENTS; i++)	clients[i].inuse = 0;
+	for (i = 0; i < MAXCLIENTS; i++) clients[i].inuse = 0;
 
 	// Configura o host/porta de entrada
 	bzero(&INaddress, sizeof(struct sockaddr_in));
-	INaddress.sin_family = AF_INET;	                     // tipo UDP, TCP, etc. 
+	INaddress.sin_family = AF_INET;	                     // tipos UDP, TCP, etc. 
 	INaddress.sin_addr.s_addr = inet_addr(argv[1]);
 	INaddress.sin_port = htons((unsigned short) atol(argv[2]));
 
