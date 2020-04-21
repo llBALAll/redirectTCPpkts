@@ -40,7 +40,7 @@ int main(int argc, char *argv[]) {
 
 	//Verifica a entrada de argumentos
 	if (argc != 5) {
-		std::cout << "\n  Este programa redireciona packotes TCP de um par ip/port para outro par ip/port\n\n";
+		std::cout << "\n  Este programa redireciona pacotes TCP de um par ip/port para outro par ip/port\n\n";
 		std::cout << "    Uso: " << argv[0] << " IP1 PORT1 IP2 PORT2\n";
 		return EXIT_FAILURE;
 	}
@@ -68,7 +68,7 @@ int main(int argc, char *argv[]) {
 		bcopy(n->h_addr, (char *) &INaddress.sin_addr, n->h_length);
 	}
 
-	// Configura o par host/porta de saída
+	// Configura o par host/porta de saÃ­da
 	bzero(&OUTaddress, sizeof(struct sockaddr_in));
 	OUTaddress.sin_family = AF_INET;
 	OUTaddress.sin_port = htons((unsigned short) atol(argv[4]));
@@ -96,7 +96,7 @@ int main(int argc, char *argv[]) {
 	}
 
 	if (bind(INsock, (struct sockaddr *)&INaddress, sizeof(INaddress))) {
-		std::cout << "Erro no socket de entrada!" << std::endl;
+		std::cout << "Erro no bind do socket de entrada!" << std::endl;
 		return EXIT_FAILURE;
 	}
 
@@ -105,7 +105,7 @@ int main(int argc, char *argv[]) {
 		return EXIT_FAILURE;
 	}
 
-	// Muda a porta na estrutura cliente para 0, e será usada para sockets de saída locais
+	// Muda a porta na estrutura cliente para 0, e serÃ¡ usada para sockets de saÃ­da locais
 	INaddress.sin_port = htons(0);
 
 	// Loop principal
@@ -138,7 +138,7 @@ int main(int argc, char *argv[]) {
 			if (!clients[i].inuse) break;
 
 			if (i < MAXCLIENTS)	{
-			// Conecta um novo socket ao socket de saída
+			// Conecta um novo socket ao socket de saÃ­da
 				SOCKET OUTsock;
 				if ((OUTsock = socket(AF_INET, SOCK_STREAM, 0)) == -1) {
 				    std::cout << "Erro na criacao do socket de saida!" << std::endl;
