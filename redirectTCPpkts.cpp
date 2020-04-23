@@ -1,3 +1,13 @@
+// old code known as datapipe, i don't know who wrote.
+// I used this code to implement a TCP redirector that has input file (route table) to redirect some connections.
+// But I don't want to share for now.
+
+// cpp
+#include <cstdlib>
+#include <iostream>
+//using namespace std;
+//---
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -13,19 +23,12 @@
 #define MAXCLIENTS 20
 #define IDLETIMEOUT 300
 
-// cpp
-#include <cstdlib>
-#include <iostream>
-using namespace std;
-//---
-
 // Estrutura p sockets clientes
 struct struct_Cliente {
 	int inuse;
 	SOCKET INsock, OUTsock;
 	time_t activity;
 };
-
 
 int main(int argc, char *argv[]) { 
 
